@@ -33,6 +33,6 @@ private Rigidbody rb;
 이유
 
 - 캡슐화 유지
-- 외부 접근 제한
+- 외부에서 직접 접근할 필요가 없는 참조이므로 public으로 노출할 이유가 없음.
 - Unity Inspector 사용 가능
-- 굳이 public 사용할 이유가 없음
+
