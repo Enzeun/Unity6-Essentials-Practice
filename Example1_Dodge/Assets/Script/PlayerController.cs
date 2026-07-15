@@ -1,33 +1,26 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
+    [SerializeField]
     private Rigidbody rb;
     private float speed = 8f;
+    private Vector2 moveInput;
+
     void Start()
     {
 
     }
 
+    private void FixedUpdate()
+    {
+        Vector3 moveDirection = new Vector3 (moveInput.x, 0, moveInput.y);
+        rb.linearVelocity = moveDirection * speed;
+    }
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow) == true)
-        {
-            rb.AddForce(0f, 0f, speed);
-        }
-        if (Input.GetKey(KeyCode.DownArrow) == true)
-        {
-            rb.AddForce(0f, 0f, -speed);
-        }
-        if (Input.GetKey(KeyCode.RightArrow) == true)
-        {
-            rb.AddForce(speed, 0f, 0f);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow) == true)
-        {
-            rb.AddForce(-speed, 0f, 0f);
-        }        
+        moveInput = InputSystem.actions["Move"].ReadValue<Vector2>();
     }
 
     public void Die()
