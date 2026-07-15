@@ -17,3 +17,22 @@
 ## 배운 점
 - Input Action 기반으로 입력을 처리한다.
 - Player가 직접 입력을 읽기보다 InputManager를 통해 전달받는 구조가 유지보수에 유리하다.
+
+
+### 캡슐화
+
+### Before
+
+public Rigidbody rb;
+
+### After
+
+[SerializeField]
+private Rigidbody rb;
+
+이유
+
+- 캡슐화 유지
+- 외부 접근 제한
+- Unity Inspector 사용 가능
+- 굳이 public 사용할 이유가 없음
