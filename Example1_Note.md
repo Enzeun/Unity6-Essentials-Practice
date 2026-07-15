@@ -2,7 +2,7 @@
 - 예제를 직접 구현하며 Unity의 기본 기능을 익힌다.
 - 책의 예제를 최신 Unity 6 방식으로 개선한다.
 - 변경한 이유와 배운 점을 기록한다.
-
+---
 # 변경 사항
 
 ## Input
@@ -48,19 +48,22 @@
 - Input Action 기반으로 입력을 처리한다.
 - Player가 직접 입력을 읽기보다 InputManager를 통해 전달받는 구조가 유지보수에 유리하다.
 
+---
 
-## 캡슐화
+## 변수 캡슐화
+- 책에서는 public 생성자를 사용한다.
+- 외부에서 접근할 필요가 없는 변수는 private 로 캡슐화를 한다
 
 ### Before
 
-public Rigidbody rb;
+    public Rigidbody rb;
 
 ### After
 
-[SerializeField]
-private Rigidbody rb;
+    [SerializeField]
+    private Rigidbody rb;
 
-이유
+## 변경이유
 
 - 캡슐화 유지
 - 외부에서 직접 접근할 필요가 없는 참조이므로 public으로 노출할 이유가 없음.
