@@ -10,6 +10,9 @@
 - Unity 6에서는 Input System이 표준이므로 Input System으로 변경하였다.
 
 ### Before
+    void Update()
+    {
+        예제에서는 구 버전 InpunMananger 를 사용하고 있음.
         if (Input.GetKey(KeyCode.UpArrow) == true)
         {
             rb.AddForce(0f, 0f, speed);
@@ -26,17 +29,20 @@
         {
             rb.AddForce(-speed, 0f, 0f);
         }
+    }
 ### After
+    private void FixedUpdate()
+    {
         Vector2 movedir;
-
         movedir = InputSystem.actions["Move"].ReadValue<Vector2>();
-
-        rb.AddForce(movedir * speed * Time.deltaTime);
+        rb.AddForce(movedir * speed);
+    }
 
 ## 변경 이유
 - Unity에서 권장하는 최신 입력 시스템이다.
 - 런타임 Key Rebinding을 지원한다.
 - 멀티플레이 및 다양한 입력 장치 확장에 유리하다.
+- addForce 는 물리연산이므로 일정한 물리 Frame 에서 실행하기 위해 FixedUpdate 로 변경 
 
 ## 배운 점
 - Input Action 기반으로 입력을 처리한다.
