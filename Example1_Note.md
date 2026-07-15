@@ -1,13 +1,37 @@
-## 목적
+# 목적
 - 예제를 직접 구현하며 Unity의 기본 기능을 익힌다.
 - 책의 예제를 최신 Unity 6 방식으로 개선한다.
 - 변경한 이유와 배운 점을 기록한다.
 
-## 변경 사항
+# 변경 사항
 
-### Input
+## Input
 - 책에서는 Legacy Input Manager를 사용한다.
 - Unity 6에서는 Input System이 표준이므로 Input System으로 변경하였다.
+
+### Before
+        if (Input.GetKey(KeyCode.UpArrow) == true)
+        {
+            rb.AddForce(0f, 0f, speed);
+        }
+        if (Input.GetKey(KeyCode.DownArrow) == true)
+        {
+            rb.AddForce(0f, 0f, -speed);
+        }
+        if (Input.GetKey(KeyCode.RightArrow) == true)
+        {
+            rb.AddForce(speed, 0f, 0f);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) == true)
+        {
+            rb.AddForce(-speed, 0f, 0f);
+        }
+### After
+        Vector2 movedir;
+
+        movedir = InputSystem.actions["Move"].ReadValue<Vector2>();
+
+        rb.AddForce(movedir * speed * Time.deltaTime);
 
 ## 변경 이유
 - Unity에서 권장하는 최신 입력 시스템이다.
@@ -19,7 +43,7 @@
 - Player가 직접 입력을 읽기보다 InputManager를 통해 전달받는 구조가 유지보수에 유리하다.
 
 
-### 캡슐화
+## 캡슐화
 
 ### Before
 
