@@ -1,19 +1,32 @@
-## 목적
+# 목적
 - 예제를 직접 구현하며 Unity의 기본 기능을 익힌다.
 - 책의 예제를 최신 Unity 6 방식으로 개선한다.
 - 변경한 이유와 배운 점을 기록한다.
+---
+# 변경 사항
 
-## 변경 사항
+## Input System 적용
+### Before
+    - Legacy Input Manager 사용
+### After
+    - Unity Input System 기반으로 변경
+### 변경 이유
+- Unity 최신 표준 입력 방식 적용
+- 키보드 외 Gamepad 등 다양한 입력 장치 확장 가능
+- 입력 처리와 물리 처리를 분리하여 안정적인 Rigidbody 제어 구조 확보
+### 배운 점
+- 입력(ReadValue)은 Update에서 처리
+- 물리 연산(AddForce)은 FixedUpdate에서 처리
 
-### Input
-- 책에서는 Legacy Input Manager를 사용한다.
-- Unity 6에서는 Input System이 표준이므로 Input System으로 변경하였다.
+---
+
+## 변수 캡슐화
+### Before
+
+### After
 
 ## 변경 이유
-- Unity에서 권장하는 최신 입력 시스템이다.
-- 런타임 Key Rebinding을 지원한다.
-- 멀티플레이 및 다양한 입력 장치 확장에 유리하다.
+- 외부 접근이 필요 없는 데이터는 private으로 제한
+- Inspector 연결은 유지하면서 캡슐화 적용
+- 불필요한 public 노출 방지
 
-## 배운 점
-- Input Action 기반으로 입력을 처리한다.
-- Player가 직접 입력을 읽기보다 InputManager를 통해 전달받는 구조가 유지보수에 유리하다.
