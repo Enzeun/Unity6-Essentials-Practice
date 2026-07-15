@@ -22,11 +22,8 @@
 
 ## 변수 캡슐화
 ### Before
-    public Rigidbody rb;
 
 ### After
-    [SerializeField]
-    private Rigidbody rb;
 
 ## 변경 이유
 - 외부 접근이 필요 없는 데이터는 private으로 제한
