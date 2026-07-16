@@ -16,17 +16,25 @@
 - 입력 처리와 물리 처리를 분리하여 안정적인 Rigidbody 제어 구조 확보
 ### 배운 점
 - 입력(ReadValue)은 Update에서 처리
-- 물리 연산(AddForce)은 FixedUpdate에서 처리
-
+- 힘을 가하는 물리 연산(`AddForce`)은 물리 프레임에 맞춰 실행되는 `FixedUpdate`에서 처리하여 프레임 드랍 시 입력이 누락되는 현상을 방지한다.
+-  
 ---
 
 ## 변수 캡슐화
 ### Before
-
+    - 생성자 public 사용
 ### After
-
+    - 생성자 private 으로 변경
 ## 변경 이유
 - 외부 접근이 필요 없는 데이터는 private으로 제한
 - Inspector 연결은 유지하면서 캡슐화 적용
 - 불필요한 public 노출 방지
 
+---
+## Object Pooling
+### Before
+    - Initiate() -> Destrot() 사용
+### After
+    - object pooling 기법 사용
+## 변경 이유
+- 빈번한 생성(`Instantiate`)과 파괴(`Destroy`)는 가비지 컬렉터(GC)를 자극하고 프레임 드랍(CPU 병목)을 유발하므로 메모리를 재사용하는 풀링 기법으로 대체
