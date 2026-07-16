@@ -4,7 +4,8 @@ public class OdinPractice : MonoBehaviour
 {
     [Title("디버깅 연습")]
 
-    [ShowInInspector]    
+    [ShowInInspector]
+    [SerializeField]
     private bool show;
     
 
