@@ -16,8 +16,8 @@
 - 입력 처리와 물리 처리를 분리하여 안정적인 Rigidbody 제어 구조 확보
 ### 배운 점
 - 입력(ReadValue)은 Update에서 처리
-- 물리 연산(AddForce)은 FixedUpdate에서 처리
-
+- 힘을 가하는 물리 연산(`AddForce`)은 물리 프레임에 맞춰 실행되는 `FixedUpdate`에서 처리하여 프레임 드랍 시 입력이 누락되는 현상을 방지한다.
+-  
 ---
 
 ## 변수 캡슐화
@@ -37,4 +37,4 @@
 ### After
     - object pooling 기법 사용
 ## 변경 이유
-- destroy 는 연산이 무거우므로 대량으로 생성/파괴 할 때는 object pooling 사용
+- 빈번한 생성(`Instantiate`)과 파괴(`Destroy`)는 가비지 컬렉터(GC)를 자극하고 프레임 드랍(CPU 병목)을 유발하므로 메모리를 재사용하는 풀링 기법으로 대체
