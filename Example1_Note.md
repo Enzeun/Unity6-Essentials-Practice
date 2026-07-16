@@ -22,11 +22,19 @@
 
 ## 변수 캡슐화
 ### Before
-
+    - 생성자 public 사용
 ### After
-
+    - 생성자 private 으로 변경
 ## 변경 이유
 - 외부 접근이 필요 없는 데이터는 private으로 제한
 - Inspector 연결은 유지하면서 캡슐화 적용
 - 불필요한 public 노출 방지
 
+---
+## Object Pooling
+### Before
+    - Initiate() -> Destrot() 사용
+### After
+    - object pooling 기법 사용
+## 변경 이유
+- destroy 는 연산이 무거우므로 대량으로 생성/파괴 할 때는 object pooling 사용
