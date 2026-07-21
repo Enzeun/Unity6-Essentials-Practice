@@ -34,7 +34,7 @@
 ---
 ## Object Pooling
 ### Before
-    - Initiate() -> Destrot() 사용
+    - Instantiate() -> Destroy() 사용
 ### After
     - object pooling 기법 사용
 ## 변경 이유
