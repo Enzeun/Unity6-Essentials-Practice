@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.Pool;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,10 +14,14 @@ public class GameManager : MonoBehaviour
 
     private bool isGameOver;
 
+    private ObjectPool<Bullet> bulletpool;
+
     void Start()
     {
         surviveTime = 0;
         isGameOver = false;
+
+       
     }
 
     // Update is called once per frame

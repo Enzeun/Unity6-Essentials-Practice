@@ -18,6 +18,8 @@ public class BulletSpawner : MonoBehaviour
     [ShowInInspector]
     private float timeAfterSpawn;
 
+    public BulletPoolManager poolManager;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,7 +48,8 @@ public class BulletSpawner : MonoBehaviour
     [Button]
     void SpawnBullet()
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        //GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        Bullet bullet = poolManager.SpawnBullet(transform.position, transform.rotation);
         bullet.transform.LookAt(target);
     }
 }
