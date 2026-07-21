@@ -36,7 +36,7 @@
 ### Before
     - Instantiate() -> Destroy() 사용
 ### After
-    - object pooling 기법 사용
+    - Object Pooling 사용
 ## 변경 이유
 - 총알은 짧은 시간 동안 반복적으로 생성·삭제되는 오브젝트이다.
 - Instantiate/Destroy를 반복하면 메모리 할당과 해제가 지속적으로 발생한다.
